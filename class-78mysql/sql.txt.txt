@@ -1,0 +1,118 @@
+Day-18-05-2026
+Monday
+class-78 MySQL Class 
+
+CRUD- Create
+Read,
+Update,
+Delete,
+
+insert into students(name,is_inactive,email)
+values("Sabbir", 0,"sabbir@ghmail.com"); //value data 
+
+select id,name from studets; //check data 
+
+select id,name from studets where is_inactive=1; // id by check Read
+select id,name from studets where is_inactive=0;
+
+update students set name="ali",email="ali@gmailcom"
+where id=2;  // update_ Data  
+
+insert into students(name, address, email,is_inactive) values ('Minhas', 'Mirai', 'minhas@example.com', 0); // insert data
+
+delete students where id=10; // delete id
+
+ALTER TABLE students
+ADD mobile VARCHAR(100); // add column
+
+alter table students
+add column mobile_number varchar(19) after email;  // add column
+
+update students set mobile_number="01877222766"
+where id=7;  //update
+
+ALTER TABLE students
+CHANGE name fullname VARCHAR(100); //name change 
+
+ALTER TABLE students
+DROP COLIUMN fullname;  //delete
+
+drop table results // delete able 
+
+create table if not exists results(
+    id int(10) unsigned primary key auto_increment,
+    student_id int,
+    score float default 0,
+    exam_type varchar(100)
+)
+create table if not exists scores(
+    id int(10) unsigned primary key auto_increment,
+    student_id int,
+    score float default 0,
+    exam_type varchar(100)
+);
+
+
+insert into scores(student_id,score,exam_type) 
+values (101,60,'Mid-Month'); // insert data
+
+insert into scores(student_id,score,exam_type) 
+values (102,50,'Mid-Month');
+insert into scores(student_id,score,exam_type) 
+values (103,70,'Mid-Month');
+insert into scores(student_id,score,exam_type) 
+values (104,40,'Mid-Month');
+insert into scores(student_id,score,exam_type) 
+values (105,80,'Mid-Month');
+insert into scores(student_id,score,exam_type) 
+values (106,30,'Mid-Month');
+insert into scores(student_id,score,exam_type) 
+values (107,90,'Mid-Month');
+
+insert into scores(student_id,score,exam_type) 
+values (101,90,'final');
+insert into scores(student_id,score,exam_type) 
+values (103,70,'Final');
+
+SELECT *
+FROM students
+JOIN scores
+ON students.student_id = scores.student_id;
+
+select  m.student_id,s.fullname,m.score,m.exam_type
+from students as s,scores m 
+where m.student_id =s.id;
+
+update scores set student_id=1
+where score=60;
+update scores set student_id=2
+where score=50;
+update scores set student_id=3
+where score=70;
+update scores set student_id=4
+where score=40;
+update scores set student_id=5
+where score=80;
+update scores set student_id=6
+where score=30;
+update scores set student_id=7
+where score=90;
+
+select  m.student_id,s.fullname name,m.score as marks,m.exam_type
+from students s,scores as m
+where m.student_id =s.id;
+
+select  m.student_id,s.fullname name,m.score as marks,m.exam_type
+from students s,scores as m
+where m.student_id =s.id and m.exam_type="Mid-Month";
+select  m.student_id,s.fullname name,m.score as marks,m.exam_type
+from students s,scores as m
+where m.student_id =s.id and m.exam_type="Final";
+
+update scores set exam_type="final"
+where score=60;
+
+create view view_students_scores as 
+select  m.student_id,s.fullname name,m.score as marks,m.exam_type
+from students s,scores as m
+where m.student_id =s.id;
