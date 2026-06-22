@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .p-1 {
+            color: red;
+            font-weight: bold;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="p-1"> Para 1 </p>
+    <p class="p2" id="p2"> Para 2 </p>
+    <p class="p-3"> Para 3 </p>
+
+    <div></div>
+
+
+    <script src="js/jquery-4.0.0.min.js">
+    </script>
+    <script>
+        //example
+        // document.querySelectorAll('p').forEach(p=>{
+        //    p.style.color = "red";
+        // })
+
+        //selectors .p-1, .p2, .p-3 all p tags with class name p-1, p2, p-3
+        // $('p').css('color', 'green');
+        // Document.querySelectorAll('div').innerText = 'hello';
+    //    $('div').text('hello <b>world</b>');
+    //    $('div').html('hello <b>world</b>');
+
+    //  $(".p-1 ").css({
+    //      "color": "red",
+    //      "font-weight": "bold",
+    //      "font-size": "30px",
+    //      "background-color": "yellow"
+    //  });
+    //  $("div").append("<h1>Hello 1</h1>")
+    //  $("div").append("<h1>Hello 2</h1>")
+    //  $("div").append("<h1>Hello 3 </h1>")
+
+    //  $("div").prepend("<h1>Hello 3 </h1>")
+    //  $(".p-3").hide();
+    //  $(".p-3").show(1000);
+
+    // document.querySelector('.p-3').addEventListener('click', function () {
+    //    alert('Hello');
+    // });
+    $('.p-3').click(function () {
+        alert('Hello');
+    });
+  $("#p2").mouseover(function () {
+    alert("Mouse is over p2");
+});
+  $("[class='p-1']").dblclick(function () {
+    alert("Mouse is over p1");
+});
+
+    </script>
+</body>
+
+</html>

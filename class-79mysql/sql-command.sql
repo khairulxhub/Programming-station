@@ -5,6 +5,13 @@ create table if not exists students_logs(
     time timestamp
 );
 
+create table if not exists product_logs(
+    id int unsigned primary key auto_increment,
+    product_id int ,
+    status varchar(20),
+    time timestamp
+);
+
 --trigger--
 create trigger add_student
 after insert  on students
@@ -41,3 +48,9 @@ insert into students_logs(student_id,status,time)
 values(old.id,'deleted',now());
 
 delete from students where id=9;
+
+create trigger products_id
+after delete  on product_details
+for each row
+insert into product_logs(product_id,status,time) 
+values(old.product_id,'deleted',now());
